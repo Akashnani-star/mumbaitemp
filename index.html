@@ -37,7 +37,7 @@
 
         result = await data.json();
         avg = (result.consolidated_weather[0].max_temp + result.consolidated_weather[0].min_temp)/2;
-        document.getElementById("temp").innerText = `Mumbai Weather : ${avg}`;
+        document.getElementById("temp").innerText = `Mumbai Weather : ${avg} degrees celsius`;
     }
 
     name();

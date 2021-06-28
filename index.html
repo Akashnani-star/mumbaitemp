@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumbai</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url("mynivi.jpg"); 
+        }
+        #temp{
+            display: flex;
+            align-items: center;
+            color: yellow;
+            font-size: 500%;
+            border-radius: 10%;
+            border: 1px solid blue;
+            background-color: rgba(10, 20, 30, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div id="temp">
+        Loading...
+    </div>
+</body>
+</html>
+
+<script>
+    async function name() {
+        data = await fetch(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/12586539/`);
+
+        result = await data.json();
+        avg = (result.consolidated_weather[0].max_temp + result.consolidated_weather[0].min_temp)/2;
+        document.getElementById("temp").innerText = `Mumbai Weather : ${avg}`;
+    }
+
+    name();
+
+</script>

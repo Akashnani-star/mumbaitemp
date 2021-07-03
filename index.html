@@ -10,7 +10,7 @@
   }
   #d1 {
     width: 10%;
-	-webkit-text-stroke: 2px rgba(114, 189, 29, 0.712);
+    -webkit-text-stroke: 2px rgba(114, 189, 29, 0.712);
     height: 5%;
     border-radius: 7%;
     background-color: green;
@@ -46,11 +46,32 @@
       opacity: 100%;
     }
   }
+
+
+@media (max-width: 1440px){
+	#d1 {
+		font-size : 3em;
+		width: 10%;
+		height: 10%;
+	}
+}
+
+@media (max-width: 1024px){
+	#d1 {
+		font-size : 2.3em;
+		width: 20%;
+		height: 10%;
+	}
+}
+
+
+
 </style>
 <div id="d1">
   <div id="innerdiv"></div>
 </div>
 <script>
+  var medqu = window.matchMedia("(max-width: 440px)")
   var div = document.getElementById("d1");
   var url =
     "https://api.openweathermap.org/data/2.5/weather?q=Mumbai&appid=9fbb0d6012f4c2683475878f6c12fc83";
@@ -64,8 +85,16 @@
     div.style.textShadow = "3px 3px 3px yellow";
     div.style.animation = "animate1 1s 1";
     div.style.display = "flex";
-    div.style.height = "40%";
-    div.style.width = "40%";
+    if(medqu.matches){
+		console.log("akash");
+		div.style.height = "30%";
+		div.style.width = "45%";
+		div.fontSize = "2em";
+    }else{
+		console.log("akash1");
+		div.style.height = "40%";
+        div.style.width = "45%";
+	}
     div.style.alignItems = "center";
     div.style.justifyContent = "center";
     div.style.border = "2px groove";
